@@ -15,8 +15,24 @@ function Root() {
         <SafeAreaView style={{ flex: 1 }}>
             <NavigationContainer>
                 <Stack.Navigator>
-                    <Stack.Screen name="Login" component={Login} />
-                    <Stack.Screen name="SignUp" component={SignUp} />
+                    <Stack.Screen name="Login" component={Login}  
+                    options={{
+                        headerShown:false, 
+                    }}
+                    />
+                    <Stack.Screen name="SignUp" component={SignUp} 
+                    options={{
+                        title: 'Kullanıcı Kayıt',
+                        headerBackTitleVisible: false,
+                        headerTitleAlign: 'center',
+                        headerStyle: {
+                            backgroundColor: '#f2f2f2',
+                            elevation: 3,
+                            shadowOpacity: 3,
+                            borderBottomWidth: 1
+                        },
+                        headerTitleStyle: { color: 'red' },
+                    }}/>
                     <Stack.Screen name="CustomCalendar" component={CustomCalendar} />
                 </Stack.Navigator>
             </NavigationContainer>
@@ -25,13 +41,13 @@ function Root() {
 }
 
 
-const MainStack = () => {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name="Login" component={CustomCalender} />
-        </Stack.Navigator>
-    )
-}
+// const MainStack = () => {
+//     return (
+//         <Stack.Navigator>
+//             <Stack.Screen name="Calendar" component={CustomCalender} />
+//         </Stack.Navigator>
+//     )
+// }
 
 // function Root(params) {
 //     <SafeAreaView style={{flex:1}}>

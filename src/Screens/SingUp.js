@@ -7,8 +7,6 @@ import { _userSeviye } from '../../Data';
 const w = Dimensions.get('window').width
 
 
-
-
 function SignUp() {
 
 
@@ -24,21 +22,8 @@ function SignUp() {
     const [email, setEmail] = useState('');
     const [seviye, setSeviye] = useState('');
 
-    useState(() => {
-        navigation.setOptions({
-            title: 'Kullanıcı Kayıt',
-            headerBackTitleVisible: false,
-            headerTitleAlign: 'center',
-            headerStyle: {
-                backgroundColor: '#f2f2f2',
-                elevation: 3,
-                shadowOpacity: 3,
-                borderBottomWidth: 1
-            },
-            headerTitleStyle: { color: 'red' },
-        })
-    }, [navigation])
-
+let _uArray = [{'uName':uName,'pword': pword,'adsoyad':adSoyad,'tc':tc,'telefon': telefon,'adres':adres,'email':email,'seviye':seviye}]
+///_uName: uName, _upword: pword, _tc: tc, _adsoyad: adSoyad, _email: email, _adres: adres, _telefon: telefon, _seviye: seviye
 
     return (
         <ScrollView>
@@ -47,41 +32,41 @@ function SignUp() {
             <View style={{ flex: 2 }}>
                 <TextInput
                     placeholder='Kullanıcı Adı'
-                    onChange={((text) => setuName(text))}
+                    onChangeText={((text) => setuName(text))}
                     value={uName}
                     style={styles.txtInput}
                 />
 
                 <TextInput
                     placeholder='TC Kimlik No'
-                    onChange={((text) => setTC(text))}
+                    onChangeText={((text) => setTC(text))}
                     value={tc}
                     style={styles.txtInput}
                 />
 
                 <TextInput
                     placeholder='Adı Soyadı'
-                    onChange={((text) => setAdSoyad(text))}
+                    onChangeText={((text) => setAdSoyad(text))}
                     value={adSoyad}
                     style={styles.txtInput}
                 />
                 <TextInput
                     placeholder='E-Mail'
-                    onChange={((text) => setEmail(text))}
+                    onChangeText={((text) => setEmail(text))}
                     value={email}
                     style={styles.txtInput}
                 />
 
                 <TextInput
                     placeholder='Telefon'
-                    onChange={((text) => setTelefon(text))}
+                    onChangeText={((text) => setTelefon(text))}
                     value={telefon}
                     style={styles.txtInput}
                 />
 
                 <TextInput
                     placeholder='Adres'
-                    onChange={((text) => setAdres(text))}
+                    onChangeText={((text) => setAdres(text))}
                     value={adres}
                     style={styles.txtInput}
                 />
@@ -110,13 +95,13 @@ function SignUp() {
                 <TextInput
                     secureTextEntry={true}
                     placeholder='Şifre'
-                    onChange={((text) => setpword(text))}
+                    onChangeText={((text) => setpword(text))}
                     value={pword}
                     style={styles.txtInput}
                 />
 
                 <TouchableOpacity style={styles.btnL}
-                    onPress={() => navigation.navigate('Login', { _uName: uName, _upword: pword, _tc: tc, _adsoyad: adSoyad, _email: email, _adres: adres, _telefon: telefon, _seviye: seviye })}>
+                    onPress={() => navigation.navigate('Login', { _uArray })}>
                     <Text style={styles.txtL}>Kayıt</Text>
                 </TouchableOpacity>
 
